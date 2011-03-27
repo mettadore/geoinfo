@@ -9,6 +9,9 @@ rake db:migrate:geoinfo # <= Creates geoinfo_cities and geoinfo_states db tables
 
 I haven't added a rake task to populate the database yet. But the YAML files are in vendor/plugins/geoinfo/lib/db/*.yml
 
+h2. Rails 3 Support
+This fork of the plugin now supports Rails 3.0.5
+
 h3. Usage, non-plugin style
 
 The relevant files are all located in lib/db. Within this file there are two YAML files containing the data for cities and states. There is also a lib/db/migrate folder with the migration files. If you don't want all the plugin infrastructure and just want to get to the data, just grab the lib/db folder.
