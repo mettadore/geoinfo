@@ -12,7 +12,22 @@ namespace :db do
     end  
   end
   
-  namespace :fixtures do
+  namespace :seed do
     desc "Load all data from vendor/plugins/geoinfo/lib/db/*.yml into tables"
+    task :geoinfo => :environment do
+       g = GeoinfoCity.new
+       s = GeoinfoState.new
+       db_seed_path = "vendor/plugins/geoinfo/lib/db"
+       files = ['states.yml', 'cities.yml'];
+       files.map! do |file|
+         filepath = File.join(db_seed_path,file)
+         YAML::load_file(filepath).each do |obj|
+           if(obj)
+             puts "Saving #{obj.name}"
+             obj.save!
+           end
+         end
+       end
+    end
   end
 end 

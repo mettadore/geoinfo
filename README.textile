@@ -6,6 +6,7 @@ h2. Usage
 
 bc. script/plugin install git://github.com/mettadore/geoinfo.git
 rake db:migrate:geoinfo # <= Creates geoinfo_cities and geoinfo_states db tables
+rake db:seed:geoinfo # <= Populates geoinfo_cities and geoinfo_states db tables
 
 I haven't added a rake task to populate the database yet. But the YAML files are in vendor/plugins/geoinfo/lib/db/*.yml
 
