@@ -23,6 +23,8 @@ namespace :db do
          filepath = File.join(db_seed_path,file)
          YAML::load_file(filepath).each do |obj|
            if(obj)
+             obj = obj.class.new(obj.attributes);
+             obj.name = obj.name.titlecase if obj.name
              puts "Saving #{obj.name}"
              obj.save!
            end
